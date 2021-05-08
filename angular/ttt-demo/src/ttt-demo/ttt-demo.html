@@ -1,6 +1,6 @@
-<div class="ttt-demo-container">
+<div class="container-fluid ttt-demo-container">
   <div *ngFor="let box of boxes" class="box"
     (click)="play(box)">
-    <span>{{ box.playedBy || '' }}</span>
+    <span>{{ box.playedValue || '' }}</span>
   </div>
 </div>
