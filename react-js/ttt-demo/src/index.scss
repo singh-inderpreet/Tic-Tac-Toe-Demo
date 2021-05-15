@@ -1,0 +1,10 @@
+@import './theme.scss';
+
+body {
+  background: $body-background-color !important;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
