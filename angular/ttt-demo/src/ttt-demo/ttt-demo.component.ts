@@ -8,7 +8,7 @@ import {
   Result,
   ResultStatus,
   DifficultyLevel,
-} from 'tic-tac-toe-engine';
+} from 'code-tic-tac-toe';
 
 @Component({
   selector: 'ttt-demo',
@@ -54,7 +54,7 @@ export class TTTDemoComponent implements OnInit {
     this.tttEngine = new TTTEngine();
       /* Step 2: Initialize Player Details */
     this.player = {
-      name: 'Inder',
+      name: 'Player',
       value: PlayingValue.cross,
       difficultyLevel: DifficultyLevel.hard,
     };

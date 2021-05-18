@@ -1,27 +1,87 @@
-# TttDemo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.13.
+# Tic Tac Toe Engine Demo
 
-## Development server
+An engine created to make it simple to integrate TicTacToe computer gaming into any major platform, including Angular, React JS, and VUE Js.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+It has a "Easy" and "Hard" game mode for single player against the computer.
 
-## Code scaffolding
+## How to use
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- `npm install 'tic-tac-toe-engine'`
 
-## Build
+- Then go to the project where you want to use this package and import `tic-tac-toe-engine` 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```
+import {
+	TTTEngine,
+	Player,
+	PlayingValue,
+	Result,
+	ResultStatus,
+	DifficultyLevel,
+} from  'tic-tac-toe-engine';
+...
+```
+- Initialize the `TTTEngine`
 
-## Running unit tests
+```
+this.tttEngine = new  TTTEngine();
+```
+- Initialize `Player` details
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+this.player = {
+	name:  'Inder',
+	value:  PlayingValue.cross,
+	difficultyLevel:  DifficultyLevel.hard,
+};
+this.tttEngine.setPlayer(this.player);
+```
+- Play move `tttEngine.playMove(playedIndex)`
 
-## Running end-to-end tests
+```
+const  res: Result = this.tttEngine.playMove(box.index);
+```
+- Handle response and update the state of the DOM element accordingly
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```
+handlePlayedResponse(res: Result, box) {
+	/* Handle Response from move played */
+	/* Check for WIN, DRAW OR OK status */
+	if (
+		res.status === ResultStatus.win ||
+		res.status === ResultStatus.draw ||
+		res.status === ResultStatus.ok
+	) {
+		/* Update computer index value to reflect in the HTML */
+		const  computerPlayedIndex = res.computerMoveIndex;
+		/* Update Player index value to reflect in the HTML */
+		const  playerPlayedIndex = res.playerMoveIndex;
+		if (
+			computerPlayedIndex !== null &&
+			typeof  computerPlayedIndex !== 'undefined'
+		) {
+			this.updateIndexPlayedValue(
+			res.computerMoveIndex,
+			this.player.value === PlayingValue.cross
+			? PlayingValue.circle
+			: PlayingValue.cross
+			);
+		}
+		if (
+			playerPlayedIndex !== null &&
+			typeof  playerPlayedIndex !== 'undefined'
+		) {
+			this.updateIndexPlayedValue(res.playerMoveIndex, this.player.value);
+		}
+		/* If Game Status is WIN OR DRAW, show message and provide reset option */
+		if (res.status === ResultStatus.win || res.status === ResultStatus.draw) {
+			const  isDraw = res.status === ResultStatus.draw;
+			const  message = 'Game Over, ' + (!isDraw ? ('WON BY: ' + res.player) : ('Status: ' + res.status));
+			console.log(message);
+			this.initGame(); // Reset Game
+		}
+		return;
+	}
+}
+```

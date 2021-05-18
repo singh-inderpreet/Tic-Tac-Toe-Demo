@@ -29,10 +29,10 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/bootstrap/dist/css/bootstrap.css"
             ],
             "scripts": [
-              "node_modules/tic-tac-toe-engine/dist/index.js",
+              "node_modules/code-tic-tac-toe/index.js",
               "node_modules/bootstrap/dist/js/bootstrap.js"
             ]
           },

@@ -19,7 +19,7 @@ import {
   DifficultyLevel,
   Result,
   Player,
-} from "tic-tac-toe-engine";
+} from "code-tic-tac-toe";
 import { defineComponent, reactive } from "vue";
 import Swal from "sweetalert2";
 
@@ -46,7 +46,7 @@ export default defineComponent({
     const tttEngine = new TTTEngine();
     /* Step 2: Initialize Player Details */
     const player: Player = {
-      name: "Inder",
+      name: "Player",
       value: PlayingValue.cross,
       difficultyLevel: DifficultyLevel.hard,
     };

@@ -8,7 +8,7 @@ import {
   Player,
   DifficultyLevel,
   ResultStatus,
-} from "tic-tac-toe-engine";
+} from "code-tic-tac-toe";
 
 import "./ttt-demo.scss";
 
@@ -27,7 +27,7 @@ class TTTDemo extends React.Component<Props, State> {
       boxes: [],
     };
     this.player = {
-      name: "Inder",
+      name: "Player",
       value: PlayingValue.cross,
       difficultyLevel: DifficultyLevel.hard,
     };

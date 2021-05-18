@@ -12,12 +12,12 @@
     "@types/react": "^17.0.5",
     "@types/react-dom": "^17.0.4",
     "bootstrap": "^5.0.0",
+    "code-tic-tac-toe": "^1.0.2",
     "node-sass": "^6.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
     "sweetalert2": "^11.0.0",
-    "tic-tac-toe-engine": "file:../../../tic-tac-toe-engine",
     "typescript": "^4.2.4",
     "web-vitals": "^1.1.2"
   },
