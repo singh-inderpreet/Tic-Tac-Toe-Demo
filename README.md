@@ -37,7 +37,22 @@ this.player = {
 };
 this.tttEngine.setPlayer(this.player);
 ```
-- Play move `tttEngine.playMove(playedIndex)`
+- Create an array object, such as 'boxes,' and use the following command to initialise it:
+```
+for (let index = 0; index < 9; index++) {
+   this.boxes.push({
+      index: index,
+      playedValue: null,
+   });
+}
+```
+- Create a user interface to represent a tic-tac-toe game using the index positioning shown below:
+```
+0 1 2
+3 4 5
+6 7 8
+```
+- Assign a click event on each box index and play a move using `tttEngine.playMove(playedIndex)`
 
 ```
 const  res: Result = this.tttEngine.playMove(box.index);
